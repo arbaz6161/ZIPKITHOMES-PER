@@ -23,3 +23,4 @@ composer.lock
 /public/backup
 /config/version.yml
 /storage/fontstmp.tar.gz
+.env.save
