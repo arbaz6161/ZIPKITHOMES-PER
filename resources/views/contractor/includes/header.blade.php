@@ -28,7 +28,7 @@
             <div class="header-logo">
                 <a href="https://www.zipkithomes.com/">
                     @isset($contractor->logo)
-                    <img src="{{ $contractor->logo }}" class="logo-default max-h-40px" alt="Logo">
+                    <img src="{{ $contractor->logo }}" class="logo-default max-h-100px" alt="Logo">
                     @else
                     <img src="{{ asset('img/client/cropped-zipkit-logo.png') }}" class="logo-default max-h-40px" alt="Myplanbase Logo">
                     @endif

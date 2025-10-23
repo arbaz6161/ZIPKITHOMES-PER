@@ -33,6 +33,7 @@ class FloorPlanController extends Controller
 
             $floorplans = $contractor->floorplans()
                             ->with('category:id,category_name')
+			    ->orderBy('floor_plans.category_id')
                             ->orderBy('floor_plans.order')
                             ->orderBy('floor_plans.id')
                             ->withPivot('is_keep_same_name', 'floor_plan_rename', 'is_not_display_price', 'floor_plan_price')

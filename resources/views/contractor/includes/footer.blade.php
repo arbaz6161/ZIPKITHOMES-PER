@@ -26,7 +26,7 @@
                 <a href="https://mountainvalleyprefab.com/contact/" target="_blank" class="nav-link pr-3 pl-0">Contact</a>
                 @endisset
             </div>
-            @elseif($subdomain == 'zipkithomes')
+            @elseif($subdomain == 'floorplans')
             <div class="nav nav-dark">
                 @isset($setting['about_url'])
                 <a href="{{ $setting['about_url'] }}" target="_blank" class="nav-link pr-3 pl-0">About</a>
