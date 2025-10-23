@@ -99,6 +99,5 @@ Route::group(["middleware" => "checkContractor"], function () {
 
         // settings management
         Route::post('settings/urls/store', "SettingController@store_urls")->name("admin.setting.urls.store");
-
     });
 });

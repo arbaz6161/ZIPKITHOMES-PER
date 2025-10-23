@@ -5,14 +5,12 @@ php_version: "8.3"
 webserver_type: nginx-fpm
 xdebug_enabled: false
 additional_hostnames:
-  - first.focusfloorplansdev.ddev.site
+  - admin.focusfloorplansdev.ddev.site
   - zipkithomes.focusfloorplansdev.ddev.site
-  - shurtzcanyon.focusfloorplansdev.ddev.site
   - mvp.focusfloorplansdev.ddev.site
 additional_fqdns:
-  - first.focusfloorplansdev.ddev.site
+  - admin.focusfloorplansdev.ddev.site
   - zipkithomes.focusfloorplansdev.ddev.site
-  - shurtzcanyon.focusfloorplansdev.ddev.site
   - mvp.focusfloorplansdev.ddev.site
 database:
     type: mariadb

@@ -13,47 +13,52 @@
             <a href="#" id="design-center-footer" class="nav-link pr-3 pl-0" style="display:none;">Design Center</a>
             <!-- Additional menu items based on subdomain -->
             @if ($subdomain == 'mvp')
-            <div class="nav nav-dark">
-                @isset($setting['about_url'])
-                <a href="{{ $setting['about_url'] }}" target="_blank" class="nav-link pr-3 pl-0">About</a>
-                @else
-                <a href="https://mountainvalleyprefab.com/about/" target="_blank" class="nav-link pr-3 pl-0">About</a>
-                @endisset
-                <a href="https://mountainvalleyprefab.com/" target="_blank" class="nav-link px-3">Team</a>
-                @isset($setting['contact_url'])
-                <a href="{{ $setting['contact_url'] }}" target="_blank" class="nav-link pr-3 pl-0">Contact</a>
-                @else
-                <a href="https://mountainvalleyprefab.com/contact/" target="_blank" class="nav-link pr-3 pl-0">Contact</a>
-                @endisset
-            </div>
+                <div class="nav nav-dark">
+                    @isset($setting['about_url'])
+                        <a href="{{ $setting['about_url'] }}" target="_blank" class="nav-link pr-3 pl-0">About</a>
+                    @else
+                        <a href="https://mountainvalleyprefab.com/about/" target="_blank"
+                            class="nav-link pr-3 pl-0">About</a>
+                    @endisset
+                    <a href="https://mountainvalleyprefab.com/" target="_blank" class="nav-link px-3">Team</a>
+                    @isset($setting['contact_url'])
+                        <a href="{{ $setting['contact_url'] }}" target="_blank" class="nav-link pr-3 pl-0">Contact</a>
+                    @else
+                        <a href="https://mountainvalleyprefab.com/contact/" target="_blank"
+                            class="nav-link pr-3 pl-0">Contact</a>
+                    @endisset
+                </div>
             @elseif($subdomain == 'zipkithomes')
-            <div class="nav nav-dark">
-                @isset($setting['about_url'])
-                <a href="{{ $setting['about_url'] }}" target="_blank" class="nav-link pr-3 pl-0">About</a>
-                @else
-                <a href="https://www.zipkithomes.com/about/" target="_blank" class="nav-link pr-3 pl-0">About</a>
-                @endisset
-                <a href="https://www.zipkithomes.com/" target="_blank" class="nav-link px-3">Team</a>
-                @isset($setting['contact_url'])
-                <a href="{{ $setting['contact_url'] }}" target="_blank" class="nav-link pr-3 pl-0">Contact</a>
-                @else
-                <a href="https://www.zipkithomes.com/contact-us/" target="_blank" class="nav-link pr-3 pl-0">Contact</a>
-                @endisset
-            </div>
+                <div class="nav nav-dark">
+                    @isset($setting['about_url'])
+                        <a href="{{ $setting['about_url'] }}" target="_blank" class="nav-link pr-3 pl-0">About</a>
+                    @else
+                        <a href="https://www.zipkithomes.com/about/" target="_blank" class="nav-link pr-3 pl-0">About</a>
+                    @endisset
+                    <a href="https://www.zipkithomes.com/" target="_blank" class="nav-link px-3">Team</a>
+                    @isset($setting['contact_url'])
+                        <a href="{{ $setting['contact_url'] }}" target="_blank" class="nav-link pr-3 pl-0">Contact</a>
+                    @else
+                        <a href="https://www.zipkithomes.com/contact-us/" target="_blank"
+                            class="nav-link pr-3 pl-0">Contact</a>
+                    @endisset
+                </div>
             @else
-            <div class="nav nav-dark">
-                @isset($setting['about_url'])
-                <a href="{{ $setting['about_url'] }}" target="_blank" class="nav-link pr-3 pl-0">About</a>
-                @else
-                <a href="https://www.thetrails-shurtzcanyon.com/" target="_blank" class="nav-link pr-3 pl-0">About</a>
-                @endisset
-                <a href="https://www.thetrails-shurtzcanyon.com/" target="_blank" class="nav-link px-3">Team</a>
-                @isset($setting['contact_url'])
-                <a href="{{ $setting['contact_url'] }}" target="_blank" class="nav-link pr-3 pl-0">Contact</a>
-                @else
-                <a href="https://www.thetrails-shurtzcanyon.com/#register" target="_blank" class="nav-link pr-3 pl-0">Contact</a>
-                @endisset
-            </div>
+                <div class="nav nav-dark">
+                    @isset($setting['about_url'])
+                        <a href="{{ $setting['about_url'] }}" target="_blank" class="nav-link pr-3 pl-0">About</a>
+                    @else
+                        <a href="https://www.thetrails-shurtzcanyon.com/" target="_blank"
+                            class="nav-link pr-3 pl-0">About</a>
+                    @endisset
+                    <a href="https://www.thetrails-shurtzcanyon.com/" target="_blank" class="nav-link px-3">Team</a>
+                    @isset($setting['contact_url'])
+                        <a href="{{ $setting['contact_url'] }}" target="_blank" class="nav-link pr-3 pl-0">Contact</a>
+                    @else
+                        <a href="https://www.thetrails-shurtzcanyon.com/#register" target="_blank"
+                            class="nav-link pr-3 pl-0">Contact</a>
+                    @endisset
+                </div>
             @endif
         </div>
         <!--end::Nav-->
@@ -84,8 +89,8 @@
     }
 
     $(document).ready(function() {
-       // Get the current URL path
-       var currentPath = window.location.pathname;
+        // Get the current URL path
+        var currentPath = window.location.pathname;
 
         // Use a regular expression to check if the path matches /floorplans/ followed by a number (ID)
         var regex = /^\/floorplans\/\d+$/;
@@ -129,5 +134,4 @@
         align-items: center;
         rotate: 90deg;
     }
-
 </style>
