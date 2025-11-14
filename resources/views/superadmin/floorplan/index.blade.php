@@ -76,8 +76,12 @@
                         <td>{{ $floorplan->plan_name }}</td>
                         <td>
                             <div class="preview-image">
-                                <img class="img-thumbnail" src="{{ $floorplan->images[0]['pic_url'] }}" alt="pic2 image">
-                            </div>
+@if(isset($floorplan->images[0]))                                
+<img class="img-thumbnail" src="{{ $floorplan->images[0]['pic_url'] }}" alt="pic2 image">
+@else
+    <span>No image</span>
+@endif                            
+</div>
                         </td>
                         <td>
                             @if(isset($floorplan->videos[0]))

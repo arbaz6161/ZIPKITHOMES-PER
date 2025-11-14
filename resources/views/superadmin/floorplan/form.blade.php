@@ -1,3 +1,8 @@
+<style>
+.invalid-feedback {
+display:block !important;
+}
+</style>
     <div class="form-group">
         <label for="plan_name">Floor Plan Name :</label>
         <input id="plan_name" name="plan_name"

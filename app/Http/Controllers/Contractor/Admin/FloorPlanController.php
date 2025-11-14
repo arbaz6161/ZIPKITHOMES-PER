@@ -243,7 +243,7 @@ class FloorPlanController extends Controller
             "plan_additional_text" => "required|string",
             'images.*.pic_name' => 'required|string|max:255',
             'images.*.pic_url' => 'required|string',
-            'category_id' => 'nullable|int',
+            'category_id' => 'required|int',
             'order' => 'nullable',
             // 'media.*.vid_name' => 'required|string|max:255',
             // 'media.*.vid_url' => 'required|string|max:20480',

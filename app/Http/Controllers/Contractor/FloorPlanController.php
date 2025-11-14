@@ -20,7 +20,7 @@ class FloorPlanController extends Controller
     public function index(Request $request, $subdomain)
     {
         try {
-            $contractor  = Contractor::find($request->contractor_details->id);
+            $contractor  = Contractor::with('floorplans')->find($request->contractor_details->id);
             $setting = ContractorSetting::where('contractor_id', '=', $request->contractor_details->id)->first();
             if(!$setting){
                 $setting = [
@@ -33,7 +33,7 @@ class FloorPlanController extends Controller
 
             $floorplans = $contractor->floorplans()
                             ->with('category:id,category_name')
-			    ->orderBy('floor_plans.category_id')
+			    ->orderBy('floor_plans.category_id','desc')
                             ->orderBy('floor_plans.order')
                             ->orderBy('floor_plans.id')
                             ->withPivot('is_keep_same_name', 'floor_plan_rename', 'is_not_display_price', 'floor_plan_price')
@@ -42,10 +42,9 @@ class FloorPlanController extends Controller
                                 $floorPlansData[$floorplan->category->category_name][] = $floorplan;
                             });
 
-        } catch (\Exception $e) {
-            return back()->with('error', $e->getMessage());
+         } catch (\Exception $e) {
+    return back()->with('error', $e->getMessage());
         }
-
         return view('contractor.floorplan.index', ['subdomain' => $subdomain, 'floorplans' => $floorPlansData, "contractor" => $contractor, 'setting' => $setting]);
     }
 
@@ -61,7 +60,7 @@ class FloorPlanController extends Controller
                             ->orderBy('floor_plans.order')
                             ->orderBy('floor_plans.id')
                             ->withPivot('is_keep_same_name', 'floor_plan_rename', 'is_not_display_price', 'floor_plan_price')
-                            ->get();
+                            ->get();	
             $category_mapping = CategoryMapping::where("contractor_id", "=", $request->contractor_details->id)->first()->category_ids;
             $rest_floorplans = $contractor->floorplans()->where('floor_plan_id', "<>", $floorplan->id)->withPivot('is_keep_same_name', 'floor_plan_rename', 'is_not_display_price', 'floor_plan_price', 'floor_plan_additional_text')->get();
 
@@ -78,7 +77,7 @@ class FloorPlanController extends Controller
             "contractor" => $contractor,
             "floorplans" => $rest_floorplans,
             "contractor_floorplans" => $contractor_floorplans,
-            "category_mapping" => $category_mapping,
+            "category_mapping" => $category_mapping??[],
             "number_of_homes" => $number_of_homes,
             "budgets" => $budgets,
             "time_frames" => $time_frames

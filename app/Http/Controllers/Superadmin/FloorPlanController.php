@@ -9,7 +9,7 @@ use App\Helpers\ManageAssets;
 use App\Models\FloorPlanCategories;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\DB;
 class FloorPlanController extends Controller
 {
     /**
@@ -54,19 +54,23 @@ class FloorPlanController extends Controller
      */
     public function store(Request $request)
     {
-
         $values = $request->validate([
             "plan_name" => "required|string|max:255",
             "plan_description" => "required|string|max:255",
             "plan_additional_text" => "required|string",
             'images.*.pic_name' => 'required|string|max:255',
             'images.*.pic_url' => 'required|string',
-            "category_id" => "nullable",
+            "category_id" => "required",
             "order" => 'nullable',
             // 'media.*.vid_name' => 'required|string|max:255',
             // 'media.*.vid_url' => 'required|string|max:20480',
         ]);
 
+if($request->category_id=='')
+{
+return back()->with('error','Category Required');
+}
+DB::beginTransaction();
         try {
 
             $c = 0;
@@ -82,10 +86,11 @@ class FloorPlanController extends Controller
             $floorPlan = FloorPlan::create($values);
             $media = isset($values['media']) ? $values['media'] : NULL;
             $values = ManageAssets::updateAssets($values['images'], $media, ["model" => "floorplan", "instance" => $floorPlan]);
-
+	DB::commit();
             return redirect()->route('super.floorplans.index')->with('success', 'Floor plan created successfully');
         } catch (\Exception $e) {
-            return back()->with('error', $e->getMessage());
+   DB::rollBack();            
+return back()->with('error', $e->getMessage());
         }
     }
 
